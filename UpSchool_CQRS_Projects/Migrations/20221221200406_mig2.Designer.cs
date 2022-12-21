@@ -10,8 +10,8 @@ using UpSchool_CQRS_Projects.DAL.Context;
 namespace UpSchool_CQRS_Projects.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20221220195017_firt_mig")]
-    partial class firt_mig
+    [Migration("20221221200406_mig2")]
+    partial class mig2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -76,6 +76,42 @@ namespace UpSchool_CQRS_Projects.Migrations
                     b.HasKey("ProductID");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("UpSchool_CQRS_Projects.DAL.Entities.Student", b =>
+                {
+                    b.Property<int>("StudentID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("Age")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Department")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Faculty")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Mail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("StudentID");
+
+                    b.ToTable("Students");
                 });
 #pragma warning restore 612, 618
         }

@@ -8,18 +8,18 @@ using UpSchool_CQRS_Projects.DAL.Context;
 
 namespace UpSchool_CQRS_Projects.CQRS.Handlers.ProductHandlers
 {
-    public class GetProductByAccounterQueryHandler
+    public class GetProductAccounterQueryHandler
     {
-        private readonly ProductContext _productContext;
+        private readonly Context _productContext;
 
-        public GetProductByAccounterQueryHandler(ProductContext productContext)
+        public GetProductAccounterQueryHandler(Context productContext)
         {
             _productContext = productContext;
         }
 
-        public List<GetProductByAccounterQueryResult> Handle(GetProductByAccounterQuery query)
+        public List<GetProductAccounterQueryResult> Handle()
         {
-            var values = _productContext.Products.Select(x => new GetProductByAccounterQueryResult
+            var values = _productContext.Products.Select(x => new GetProductAccounterQueryResult
             {
                 ProductID = x.ProductID,
                 Name = x.Name,

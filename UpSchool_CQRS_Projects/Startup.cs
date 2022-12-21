@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UpSchool_CQRS_Projects.CQRS.Handlers.ProductHandlers;
+using UpSchool_CQRS_Projects.CQRS.Handlers.StudentHandlers;
 using UpSchool_CQRS_Projects.CQRS.Queries.ProductQueries;
 using UpSchool_CQRS_Projects.DAL.Context;
 
@@ -26,8 +27,14 @@ namespace UpSchool_CQRS_Projects
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ProductContext>();
-            services.AddScoped<GetProductByAccounterQueryHandler>();
+            services.AddDbContext<Context>();
+            services.AddScoped<GetProductAccounterQueryHandler>();
+            services.AddScoped<GetProductStoragerQueryHandler>();
+            services.AddScoped<GetProductHumanResourceByIDQueryHandler>();
+            services.AddScoped<GetProductAccounterByIDQueryHandler>();
+            services.AddScoped<CreateProductCommandHandler>();
+            services.AddScoped<CreateStudentCommandHandler>();
+            services.AddScoped<GetAllStudentQueryHandler>();
             services.AddControllersWithViews();
         }
 
