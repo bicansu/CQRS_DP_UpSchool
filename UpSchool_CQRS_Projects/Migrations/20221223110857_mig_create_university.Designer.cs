@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using UpSchool_CQRS_Projects.DAL.Context;
 
 namespace UpSchool_CQRS_Projects.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ProductContextModelSnapshot : ModelSnapshot
+    [Migration("20221223110857_mig_create_university")]
+    partial class mig_create_university
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -1,3 +1,4 @@
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,6 +29,9 @@ namespace UpSchool_CQRS_Projects
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<Context>();
+
+            services.AddMediatR(typeof(Startup));
+
             services.AddScoped<GetProductAccounterQueryHandler>();
             services.AddScoped<GetProductStoragerQueryHandler>();
             services.AddScoped<GetProductHumanResourceByIDQueryHandler>();
@@ -35,6 +39,10 @@ namespace UpSchool_CQRS_Projects
             services.AddScoped<CreateProductCommandHandler>();
             services.AddScoped<CreateStudentCommandHandler>();
             services.AddScoped<GetAllStudentQueryHandler>();
+            services.AddScoped<RemoveStudentCommandHandler>();
+            services.AddScoped<GetStudentByIDQueryHandler>();
+            services.AddScoped<UpdateStudentCommandHandler>();
+
             services.AddControllersWithViews();
         }
 
